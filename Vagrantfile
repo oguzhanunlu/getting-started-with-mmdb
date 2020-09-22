@@ -67,6 +67,7 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", inline: <<-SHELL
 
       # install 'add-apt-repository'
+      echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections
       sudo apt-get install -y python-software-properties software-properties-common
 
       sudo apt-add-repository multiverse
@@ -89,7 +90,7 @@ Vagrant.configure(2) do |config|
       cpm install --without-test
 
       sudo cp /vagrant/GeoIP.conf /etc/GeoIP.conf
-      sudo geoipupdate
+      #sudo geoipupdate
 
       rm -rf /tmp/csv
       mkdir  /tmp/csv

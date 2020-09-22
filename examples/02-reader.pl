@@ -11,7 +11,7 @@ use Net::Works::Address;
 
 my $ip = shift @ARGV or die 'Usage: perl examples/02-reader.pl [ip_address]';
 
-my $reader = MaxMind::DB::Reader->new( file => 'users.mmdb' );
+my $reader = MaxMind::DB::Reader->new( file => 'enrich-test-geolite2-city.mmdb' );
 
 say 'Description: ' . $reader->metadata->{description}->{en};
 
